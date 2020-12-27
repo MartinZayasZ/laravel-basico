@@ -26,6 +26,9 @@ Route::get('/detalle/{year?}', [
     'as' => 'detalle.pelicula'
 ]);
 
+Route::get('/formulario', 'PeliculaController@formularios');
+Route::post('/recibir', 'PeliculaController@recibir');
+
 Route::get('/redirigir', 'PeliculaController@redirigir');
 
 Route::resource('/usuario', 'UsuarioController');
@@ -51,12 +54,12 @@ Route::get('/curso/{titulo}/{year?}', function($titulo, $year) {
 
 
 Route::get('/listado-peliculas', function(){
-    
+
     $titulo = 'Listado de peliculas';
     $peliculas = array(
         'BATMAN', 'PELICULA2', 'PELICULA3'
     );
-    
+
     return view('peliculas.listado', array(
         'titulo' => $titulo,
         'listado' => $peliculas
