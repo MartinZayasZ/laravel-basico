@@ -33,6 +33,19 @@ Route::get('/redirigir', 'PeliculaController@redirigir');
 
 Route::resource('/usuario', 'UsuarioController');
 
+
+//Route::resource('/roles', 'RolesController');
+
+Route::group(['prefix' => 'roles'],function(){
+    Route::get('index', 'RolesController@index');
+    Route::get('detail/{id}', 'RolesController@detail');
+    Route::get('create', 'RolesController@create');
+    Route::post('save', 'RolesController@save');
+    Route::get('delete/{id}', 'RolesController@delete');
+    Route::get('update/{id}', 'RolesController@update');
+    Route::post('update', 'RolesController@update2');
+});
+
 /*
 Route::get('/mostrar-fecha', function () {
     $titulo = 'Fecha:';
